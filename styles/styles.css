@@ -1,0 +1,143 @@
+/* Custom styles */
+
+    body {
+      font-family: 'Poppins', serif;
+    }
+    
+    .sidebar a:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+     .sidebar {
+      background-color: #1a202c;
+    }
+    .topbar {
+      background-color: #2d3748;
+    }
+    .topbar button {
+      transition: transform 0.3s ease;
+    }
+    .topbar button:hover {
+      transform: scale(1.05);
+    }
+
+    /* Student Averages Table */
+    #studentAveragesTable {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    #studentAveragesTable thead th,
+    #studentAveragesTable tbody td {
+      padding: 12px 15px;
+      text-align: left;
+    }
+
+    #studentAveragesTable tbody tr:hover {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+
+    #studentAveragesTable tbody td {
+      border-bottom: 1px solid #ddd; /* Ligne de séparation entre les lignes */
+      font-weight: normal;
+    }
+
+    #studentAveragesTable tbody tr:last-child td {
+      border-bottom: none; /* Pas de ligne de séparation sous la dernière ligne */
+    }
+
+    /* Dark Mode */
+    .dark #studentAveragesTable tbody tr:hover {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    /* Attendance Table */
+    #attendanceTable {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    #attendanceTable th,
+    #attendanceTable td {
+      padding: 12px 15px;
+      text-align: left;
+    }
+
+    #attendanceTable tbody tr:hover {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+
+    #attendanceTable tbody td {
+      border-bottom: 1px solid #ddd;
+      font-weight: normal;
+    }
+
+    #attendanceTable tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Dark Mode */
+    .dark #attendanceTable tbody tr:hover {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    /* Exemple de carte */
+    .card {
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-bottom: 20px;
+      opacity: 0;
+      animation: fadeIn 1s ease-in-out forwards;
+    }
+
+    .dark .card {
+      background-color: #333333;
+      color: #ffffff;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Boutons */
+    button {
+      padding: 10px 20px;
+      border-radius: 4px;
+      transition: transform 0.3s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    /* Dark Mode */
+    .dark button {
+      background-color: #555555;
+      color: #ffffff;
+    }
+
+    .dark button:hover {
+      background-color: #777777;
+    }
+
+    /* Custom styles for specific elements */
+    .dashboard-section button {
+      background-color: #4a90e2; /* Button background color */
+      color: #ffffff; /* Button text color */
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .dashboard-section button:hover {
+      background-color: #1e70bf; /* Button hover background color */
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }

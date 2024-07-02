@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Genie Logiciel - Students List</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles/styles.css">
+  <style>
+    .sidebar {
+      background-color: #1a202c;
+    }
+    .topbar {
+      background-color: #2d3748;
+    }
+    table th, table td {
+      padding: 0.75rem;
+    }
+   
+    table tbody tr:nth-child(even) {
+      background-color: #f9fafb;
+    }
+    table tbody tr:hover {
+      background-color: #edf2f7;
+    }
+    .action-buttons button {
+      margin-right: 0.5rem;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900">
+  <!-- Sidebar -->
+  <div class="flex min-h-screen">
+    <aside class="w-64 text-white flex flex-col sidebar">
+      <div class="px-6 py-8">
+        <h2 class="text-2xl font-bold mb-6">Menu</h2>
+        <nav class="flex-1">
+          <ul>
+            <li class="mb-4">
+              <a href="index.html" class="flex items-center hover:text-gray-400 px-4 py-2 rounded-lg transition duration-300">
+                <svg class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 6v10a2 2 0 002 2h10a2 2 0 002-2V12l3-6H3zm11 0v10h6V6M9 9l3 3m0 0l3-3m-3 3v8"></path>
+                </svg>
+                Dashboard
+              </a>
+            </li>
+            <li class="mb-4">
+              <a href="students.html" class="flex items-center hover:text-gray-400 px-4 py-2 rounded-lg transition duration-300">
+                <svg class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4v16h18V4H3zm0 0h18"></path>
+                </svg>
+                Students
+              </a>
+            </li>
+            <li class="mb-4">
+              <a href="departments.html" class="flex items-center hover:text-gray-400 px-4 py-2 rounded-lg transition duration-300">
+                <svg class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4v16h18V4H3zm0 0h18"></path>
+                </svg>
+                Departments
+              </a>
+            </li>
+            <li class="mb-4">
+              <a href="admin.html" class="flex items-center hover:text-gray-400 px-4 py-2 rounded-lg transition duration-300">
+                <svg class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2H5zm10 6H9m0 4h6m-6 4h6"></path>
+                </svg>
+                Admin
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col">
+      <header class="bg-white dark:bg-gray-800 shadow-md p-4 mb-6 topbar text-white">
+        <div class="flex items-center justify-between">
+          <h1 class="text-2xl font-bold">Genie Logiciel - Students List</h1>
+          <div>
+            <a href="index.html" class="text-sm text-gray-300 hover:text-white">Dashboard</a> |
+            <a href="departments.html" class="text-sm text-gray-300 hover:text-white">Departments</a> |
+            <a href="admin.html" class="text-sm text-gray-300 hover:text-white">Admin</a>
+          </div>
+        </div>
+      </header>
+
+      <!-- Students Section -->
+      <main class="flex-1 p-6 overflow-y-auto">
+        <section id="students">
+          <h2 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Students Overview</h2>
+          <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg mb-6">
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Student Details</h3>
+            <table id="studentsTable" class="min-w-full bg-white dark:bg-gray-800">
+              <thead>
+                <tr>
+                  <th class="py-2 text-left text-gray-900 dark:text-white">Nom</th>
+                  <th class="py-2 text-left text-gray-900 dark:text-white">Post-nom</th>
+                  <th class="py-2 text-left text-gray-900 dark:text-white">Prenom</th>
+                  <th class="py-2 text-left text-gray-900 dark:text-white">Matricule</th>
+                  <th class="py-2 text-left text-gray-900 dark:text-white">Actions</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Mock data for students in Genie Logiciel
+      const students = [
+        { nom: 'Johnson', postNom: 'Alice', prenom: 'Mary', anneeInscription: 2020 },
+        { nom: 'Smith', postNom: 'Bob', prenom: 'Tom', anneeInscription: 2021 },
+        { nom: 'Brown', postNom: 'Charlie', prenom: 'George', anneeInscription: 2022 },
+        // Add more student data here
+      ];
+
+      // Function to generate matricule
+      function generateMatricule(student) {
+        return `${student.nom[0]}${student.postNom[0]}${student.prenom[0]}${student.anneeInscription}`;
+      }
+
+      // Function to handle edit button click
+      function handleEdit(student) {
+        alert(`Edit student: ${student.nom} ${student.postNom} ${student.prenom}`);
+      }
+
+      // Function to handle delete button click
+      function handleDelete(student) {
+        alert(`Delete student: ${student.nom} ${student.postNom} ${student.prenom}`);
+      }
+// Populate Students Table
+      const studentsTableBody = document.getElementById('studentsTable').querySelector('tbody');
+      students.forEach(student => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td class="py-2 text-left text-gray-900 dark:text-white">${student.nom}</td>
+          <td class="py-2 text-left text-gray-900 dark:text-white">${student.postNom}</td>
+          <td class="py-2 text-left text-gray-900 dark:text-white">${student.prenom}</td>
+          <td class="py-2 text-left text-gray-900 dark:text-white">${generateMatricule(student)}</td>
+          <td class="py-2 text-left text-gray-900 dark:text-white action-buttons">
+            <button class="text-blue-600 hover:text-blue-800" onclick='handleEdit(${JSON.stringify(student)})'>Edit</button>
+            <button class="text-red-600 hover:text-red-800" onclick='handleDelete(${JSON.stringify(student)})'>Delete</button>
+          </td>`;
+        studentsTableBody.appendChild(row);
+      });
+    });
+  </script>
+</body>
+</html>

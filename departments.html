@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Presence Management - Departments</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body class="bg-gray-100 dark:bg-gray-900">
+  <!-- Sidebar -->
+  <div class="flex min-h-screen">
+    <aside class="w-64 text-white flex flex-col sidebar bg-gray-800">
+      <div class="px-6 py-8">
+        <h2 class="text-2xl font-bold mb-6">Menu</h2>
+        <nav class="flex-1">
+          <ul>
+            <li class="mb-4">
+              <a href="index.html" class="flex items-center hover:text-gray-400 px-4 py-2 rounded-lg transition duration-300">
+                <svg class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 6v10a2 2 0 002 2h10a2 2 0 002-2V12l3-6H3zm11 0v10h6V6M9 9l3 3m0 0l3-3m-3 3v8"></path>
+                </svg>
+                Dashboard
+              </a>
+            </li>
+            <li class="mb-4">
+              <a href="students.html" class="flex items-center hover:text-gray-400 px-4 py-2 rounded-lg transition duration-300">
+                <svg class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4v16h18V4H3zm0 0h18"></path>
+                </svg>
+                Students
+              </a>
+            </li>
+            <li class="mb-4">
+              <a href="departments.html" class="flex items-center hover:text-gray-400 px-4 py-2 rounded-lg transition duration-300">
+                <svg class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4v16h18V4H3zm0 0h18"></path>
+                </svg>
+                Departments
+              </a>
+            </li>
+            <li class="mb-4">
+              <a href="admin.html" class="flex items-center hover:text-gray-400 px-4 py-2 rounded-lg transition duration-300">
+                <svg class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2H5zm10 6H9m0 4h6m-6 4h6"></path>
+                </svg>
+                Admin
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col">
+      <header class="bg-white dark:bg-gray-800 shadow-md p-4 mb-6 topbar text-white">
+        <div class="flex items-center justify-between">
+          <h1 class="text-2xl font-bold">Departments</h1>
+        </div>
+      </header>
+
+      <!-- Departments Section -->
+      <main class="flex-1 p-6 overflow-y-auto">
+        <section id="departments">
+          <h2 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Departments Overview</h2>
+          <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg mb-6">
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Department Details</h3>
+            <table id="departmentsTable" class="min-w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg">
+              <thead class="bg-gray-100 dark:bg-gray-700">
+                <tr>
+                  <th class="py-2 px-4 text-left text-gray-900 dark:text-white border-b border-gray-300 dark:border-gray-700">Department</th>
+                  <th class="py-2 px-4 text-left text-gray-900 dark:text-white border-b border-gray-300 dark:border-gray-700">Head</th>
+                  <th class="py-2 px-4 text-left text-gray-900 dark:text-white border-b border-gray-300 dark:border-gray-700">Students</th>
+                </tr>
+              </thead>
+              <tbody class="bg-white dark:bg-gray-800">
+                <!-- Rows will be populated by JavaScript -->
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Promotions Section -->
+          <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg mb-6">
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Promotions Overview</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <!-- L3 Promotions -->
+              <div>
+                <h4 class="text-lg font-bold text-gray-900 dark:text-white mb-2">L3 Promotions</h4>
+                <ul class="list-disc list-inside">
+                  <li><a href="promotions/L3/Genie Logiciel.html" class="text-blue-500 hover:underline">Genie Logiciel</a></li>
+                  <li><a href="promotions/L3/Design Multimedias.html" class="text-blue-500 hover:underline">Design Multimedias</a></li>
+                  <li><a href="promotions/L3/Reseaux.html" class="text-blue-500 hover:underline">Reseaux</a></li>
+                  <li><a href="promotions/L3/Telecom.html" class="text-blue-500 hover:underline">Telecommunication</a></li>
+                  <li><a href="promotions/L3/Management systeme info.html" class="text-blue-500 hover:underline">Management Systeme Informatique</a></li>
+                </ul>
+              </div>
+
+              <!-- L4 Promotions -->
+              <div>
+                <h4 class="text-lg font-bold text-gray-900 dark:text-white mb-2">L4 Promotions</h4>
+                <ul class="list-disc list-inside">
+                  <li><a href="promotions/L4/Genie Logiciel.html" class="text-blue-500 hover:underline">Genie Logiciel</a></li>
+                  <li><a href="promotions/L4/Design Multimedias.html" class="text-blue-500 hover:underline">Design Multimedias</a></li>
+                  <li><a href="promotions/L4/Reseaux.html" class="text-blue-500 hover:underline">Reseaux</a></li>
+                  <li><a href="promotions/L4/Telecom.html" class="text-blue-500 hover:underline">Telecommunication</a></li>
+                  <li><a href="promotions/L4/Management systeme info.html" class="text-blue-500 hover:underline">Management Systeme Informatique</a></li>
+                </ul>
+              </div>
+
+              <!-- L1 & L2 Promotions -->
+              <div>
+                <h4 class="text-lg font-bold text-gray-900 dark:text-white mb-2">L1 & L2 Promotions</h4>
+                <ul class="list-disc list-inside">
+                  <li><a href="l1.html" class="text-blue-500 hover:underline">L1</a></li>
+                  <li><a href="promotions/L2/L2A.html" class="text-blue-500 hover:underline">L2A</a></li>
+                  <li><a href="promotions/L2/L2B.html" class="text-blue-500 hover:underline">L2B</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Mock data for departments with URLs
+      const departments = [
+        { name: 'Genie Logiciel', head: 'Dr. John Doe', students: 120, url: 'genie-logiciel.html' },
+        { name: 'Design Multimedias', head: 'Dr. Jane Smith', students: 100, url: 'design-multimedias.html' },
+        { name: 'Reseaux', head: 'Dr. Jim Brown', students: 80, url: 'reseaux.html' },
+        { name: 'Telecommunication', head: 'Dr. Emily Davis', students: 90, url: 'telecommunication.html' },
+        { name: 'Management Systeme Informatique', head: 'Dr. Michael Wilson', students: 110, url: 'management-systeme-informatique.html' },
+      ];
+
+      // Populate Departments Table
+      const departmentsTableBody = document.getElementById('departmentsTable').querySelector('tbody');
+      departments.forEach(dept => {
+        const row = document.createElement('tr');
+        row.classList.add('hover:bg-gray-100', 'dark:hover:bg-gray-700', 'cursor-pointer'); // Add hover and cursor pointer style
+        row.innerHTML = `<td class="py-2 px-4 text-left text-gray-900 dark:text-white border-b border-gray-300 dark:border-gray-700"><a href="${dept.url}" class="text-blue-500 hover:underline">${dept.name}</a></td>
+                         <td class="py-2 px-4 text-left text-gray-900 dark:text-white border-b border-gray-300 dark:border-gray-700">${dept.head}</td>
+                         <td class="py-2 px-4 text-left text-gray-900 dark:text-white border-b border-gray-300 dark:border-gray-700">${dept.students}</td>`;
+        departmentsTableBody.appendChild(row);
+      });
+    });
+  </script>
+</body>
+</html>

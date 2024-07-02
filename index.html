@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Presence Management - Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdn.tailus.io/css/dashboard.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="styles/styles.css">
+  
+  <!-- Google Fonts: Glegoo -->
+  <link href="https://fonts.googleapis.com/css2?family=Glegoo:wght@400;700&display=swap" rel="stylesheet">
+  
+  <!-- GSAP Animation Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+
+  <style>
+    
+  </style>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900">
+
+  <!-- Sidebar -->
+  <div class="flex min-h-screen">
+    <aside class="w-64 text-white flex flex-col sidebar">
+      <div class="px-6 py-8">
+        <h2 class="text-2xl font-bold mb-6">Menu</h2>
+        <nav class="flex-1">
+          <ul>
+            <li class="mb-4">
+              <a href="index.html" class="flex items-center hover:text-gray-400 px-4 py-2 rounded-lg transition duration-300">
+                <svg class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 6v10a2 2 0 002 2h10a2 2 0 002-2V12l3-6H3zm11 0v10h6V6M9 9l3 3m0 0l3-3m-3 3v8"></path>
+                </svg>
+                Dashboard
+              </a>
+            </li>
+            <li class="mb-4">
+              <a href="students.html" class="flex items-center hover:text-gray-400 px-4 py-2 rounded-lg transition duration-300">
+                <svg class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4v16h18V4H3zm0 0h18"></path>
+                </svg>
+                Students
+              </a>
+            </li>
+            <li class="mb-4">
+              <a href="departments.html" class="flex items-center hover:text-gray-400 px-4 py-2 rounded-lg transition duration-300">
+                <svg class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4v16h18V4H3zm0 0h18"></path>
+                </svg>
+                Departments
+              </a>
+            </li>
+            <li class="mb-4">
+              <a href="admin.html" class="flex items-center hover:text-gray-400 px-4 py-2 rounded-lg transition duration-300">
+                <svg class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2H5zm10 6H9m0 4h6m-6 4h6"></path>
+                </svg>
+                Admin
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col">
+      <header class="shadow-md p-6 topbar text-white">
+        <div class="flex items-center justify-between">
+          <h1 class="text-3xl font-bold">Dashboard</h1>
+          <div class="flex items-center space-x-4">
+            <button class="bg-blue-500 px-4 py-2 rounded-lg">Add New</button>
+            <button class="bg-gray-200 text-gray-800 px-4 py-2 rounded-lg">Settings</button>
+          </div>
+        </div>
+      </header>
+      <main class="flex-1 p-6 overflow-y-auto">
+        <section id="dashboard">
+          <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Dashboard Overview</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <!-- Attendance Data -->
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+              <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Attendance Data</h3>
+              <table id="attendanceTable" class="min-w-full bg-white dark:bg-gray-800">
+                <thead>
+                  <tr>
+                    <th class="py-2 text-left text-gray-900 dark:text-white">Department</th>
+                    <th class="py-2 text-left text-gray-900 dark:text-white">Head</th>
+                    <th class="py-2 text-left text-gray-900 dark:text-white">Students</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+
+            <!-- Attendance Chart by Day -->
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+              <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Attendance by Day</h3>
+              <canvas id="attendanceChartDay"></canvas>
+            </div>
+
+            <!-- Attendance Chart by Week -->
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+              <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Attendance by Week</h3>
+              <canvas id="attendanceChartWeek"></canvas>
+            </div>
+
+            <!-- Attendance Chart by Month -->
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+              <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Attendance by Month</h3>
+              <canvas id="attendanceChartMonth"></canvas>
+            </div>
+
+                        <!-- Student Averages -->
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg col-span-2" id="studentAveragesTableContainer">
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Student Averages</h3>
+            <div class="overflow-x-auto">
+                <table id="studentAveragesTable" class="min-w-full bg-white dark:bg-gray-800">
+                <thead>
+                    <tr>
+                    <th class="py-2 px-3 text-left text-gray-900 dark:text-white">Student</th>
+                    <th class="py-2 px-3 text-left text-gray-900 dark:text-white">Average</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200 dark:divide-gray-700" id="studentAveragesTableBody"></tbody>
+                </table>
+            </div>
+            </div>
+
+
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+
+ <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // GSAP Timeline for animations
+    const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
+
+    // Function to animate elements
+    function animateDashboard() {
+      tl.from("#attendanceChartDayContainer", { opacity: 0, y: -20, duration: 0.5 })
+        .from("#attendanceChartWeekContainer", { opacity: 0, y: -20, duration: 0.5 }, "-=0.3")
+        .from("#attendanceChartMonthContainer", { opacity: 0, y: -20, duration: 0.5 }, "-=0.3")
+        .from("#studentAveragesTableContainer", { opacity: 0, y: -20, duration: 0.5 }, "-=0.3");
+    }
+
+    // Mock data for charts
+    const attendanceDataDay = [50, 60, 70, 80, 90, 100, 110];
+    const attendanceDataWeek = [300, 320, 340, 360, 380, 400, 420];
+    const attendanceDataMonth = [1200, 1300, 1400, 1500, 1600];
+    const studentAverages = [
+      { name: 'John Doe', average: 75 },
+      { name: 'Jane Smith', average: 85 },
+      { name: 'Sam Johnson', average: 90 },
+      { name: 'Chris Lee', average: 80 },
+      { name: 'Patricia Brown', average: 95 },
+    ];
+
+    // Attendance Chart by Day
+    const ctxAttendanceDay = document.getElementById('attendanceChartDay').getContext('2d');
+    new Chart(ctxAttendanceDay, {
+      type: 'line',
+      data: {
+        labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+        datasets: [{
+          label: 'Attendance by Day',
+          data: attendanceDataDay,
+          borderColor: 'rgba(75, 192, 192, 1)',
+          backgroundColor: 'rgba(75, 192, 192, 0.2)',
+          fill: true
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            display: true
+          }
+        }
+      }
+    });
+
+    // Attendance Chart by Week
+    const ctxAttendanceWeek = document.getElementById('attendanceChartWeek').getContext('2d');
+    new Chart(ctxAttendanceWeek, {
+      type: 'bar',
+      data: {
+        labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6', 'Week 7'],
+        datasets: [{
+          label: 'Attendance by Week',
+          data: attendanceDataWeek,
+          backgroundColor: 'rgba(54, 162, 235, 0.2)',
+          borderColor: 'rgba(54, 162, 235, 1)',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            display: true
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+    // Attendance Chart by Month
+    const ctxAttendanceMonth = document.getElementById('attendanceChartMonth').getContext('2d');
+    new Chart(ctxAttendanceMonth, {
+      type: 'line',
+      data: {
+        labels: ['January', 'February', 'March', 'April', 'May'],
+        datasets: [{
+          label: 'Attendance by Month',
+          data: attendanceDataMonth,
+          borderColor: 'rgba(153, 102, 255, 1)',
+          backgroundColor: 'rgba(153, 102, 255, 0.2)',
+          fill: true
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            display: true
+          }
+        }
+      }
+    });
+
+    // Populate Attendance Data Table
+    const attendanceTableBody = document.getElementById('attendanceTable').querySelector('tbody');
+    const attendanceData = [
+      { department: 'Computer Science', head: 'Dr. Smith', students: 150 },
+      { department: 'Mathematics', head: 'Dr. Doe', students: 120 },
+      { department: 'Physics', head: 'Dr. Johnson', students: 130 },
+    ];
+    attendanceData.forEach(data => {
+      const row = document.createElement('tr');
+      row.innerHTML = `<td class="py-2 text-left text-gray-900 dark:text-white">${data.department}</td>
+                       <td class="py-2 text-left text-gray-900 dark:text-white">${data.head}</td>
+                       <td class="py-2 text-left text-gray-900 dark:text-white">${data.students}</td>`;
+      attendanceTableBody.appendChild(row);
+    });
+
+    // Populate Student Averages Table
+    const studentAveragesTableBody = document.getElementById('studentAveragesTable').querySelector('tbody');
+    studentAverages.forEach(student => {
+      const row = document.createElement('tr');
+      row.innerHTML = `<td class="py-2 text-left text-gray-900 dark:text-white">${student.name}</td>
+                       <td class="py-2 text-left text-gray-900 dark:text-white">${student.average}%</td>`;
+      studentAveragesTableBody.appendChild(row);
+    });
+
+    // Animate elements when content is loaded
+    animateDashboard();
+  });
+</script>
+    <script src="data/data.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
+
